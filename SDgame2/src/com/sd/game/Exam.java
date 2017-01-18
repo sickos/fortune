@@ -10,89 +10,89 @@ public class Exam {
 		while (true) {
 			SDgame_child player1 = new SDgame_child();
 			SDgame_child player2 = new SDgame_child();	
-			System.out.println("1 ÇÃ·¹ÀÌ¾î ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("1 í”Œë ˆì´ì–´ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			player1.setName(scanner.nextLine());
-			System.out.println("2 ÇÃ·¹ÀÌ¾î ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("2 í”Œë ˆì´ì–´ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			player2.setName(scanner.nextLine());
 	
 			for(int i=SDgame.currentRound; i<=SDgame.ROUND ;i++){
 				
-			System.out.print("\n"+player1.getName() + "´Ô ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.print("\n"+player1.getName() + "ë‹˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			player1.input();
 			while (true) {
 				player1.setSelect(scanner.nextInt());
 				if (player1.getSelect() < 1 || player1.getSelect() > 10) {
-					System.out.print("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ¼ıÀÚ¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä ! \n");
+					System.out.print("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ìˆ«ìë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” ! \n");
 					continue;
 				} else
 					break;}
 			
-			System.out.print(player2.getName() + "´Ô ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.print(player2.getName() + "ë‹˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			player2.input();
 			while (true) {
 				player2.setSelect(scanner.nextInt());
 				if (player2.getSelect() < 1 || player2.getSelect() > 10) {
-					System.out.print("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ¼ıÀÚ¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä ! \n");
+					System.out.print("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ìˆ«ìë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš” ! \n");
 					continue;
 				} else
 					break;}
 			
-			System.out.print("\n"+player1.getName() + "ÀÇ Ã¹ ¹øÂ° ÆĞ ¼ıÀÚ = " + player1.getSelect() + "     ");
-			System.out.println(player1.getName() + "ÀÇ ·£´ı ÆĞ ¼ıÀÚ= " + player1.getRandom());
+			System.out.print("\n"+player1.getName() + "ì˜ ì²« ë²ˆì§¸ íŒ¨ ìˆ«ì = " + player1.getSelect() + "     ");
+			System.out.println(player1.getName() + "ì˜ ëœë¤ íŒ¨ ìˆ«ì= " + player1.getRandom());
 
-			System.out.print(player2.getName() + "ÀÇ Ã¹ ¹øÂ° ÆĞ ¼ıÀÚ = " + player2.getSelect() + "     ");
-			System.out.println(player2.getName() + "ÀÇ ·£´ı ÆĞ ¼ıÀÚ= " + player2.getRandom());
+			System.out.print(player2.getName() + "ì˜ ì²« ë²ˆì§¸ íŒ¨ ìˆ«ì = " + player2.getSelect() + "     ");
+			System.out.println(player2.getName() + "ì˜ ëœë¤ íŒ¨ ìˆ«ì= " + player2.getRandom());
 
 			res1 = player1.solution();
 			if (res1 >= 21) {
-				System.out.println("\n"+player1.getName() + "´Ô 38±¤¶¯!!!!!");
+				System.out.println("\n"+player1.getName() + "ë‹˜ 38ê´‘ë•¡!!!!!");
 			} else if ( res1>10  )  {
-				System.out.println("\n"+player1.getName()+ "´Ô " + player1.getRandom() + "¶¯");
+				System.out.println("\n"+player1.getName()+ "ë‹˜ " + player1.getRandom() + "ë•¡");
 			} else {
-				System.out.println("\n"+player1.getName()+ "´Ô " + res1 + "²ı");
+				System.out.println("\n"+player1.getName()+ "ë‹˜ " + res1 + "ë—");
 			}
 			
 			res2 = player2.solution();
 			if (res2 >= 21) {
-				System.out.println(player2.getName() + "´Ô 38±¤¶¯!!!!!");
+				System.out.println(player2.getName() + "ë‹˜ 38ê´‘ë•¡!!!!!");
 			} else if ( res2>10) {
-				System.out.println(player2.getName()+ "´Ô " + player2.getRandom() + "¶¯");
+				System.out.println(player2.getName()+ "ë‹˜ " + player2.getRandom() + "ë•¡");
 			} else {
-				System.out.println(player2.getName()+ "´Ô " + res2 + "²ı");
+				System.out.println(player2.getName()+ "ë‹˜ " + res2 + "ë—");
 			}
 			
 			if(res1 > res2)
-				System.out.println("************ "+ SDgame.currentRound+" ¶ó¿îµå " + player1.getName()+ "´ÔÀÌ ½Â¸® ÇÏ¼Ì½À´Ï´Ù ************");
+				System.out.println("************ "+ SDgame.currentRound+" ë¼ìš´ë“œ " + player1.getName()+ "ë‹˜ì´ ìŠ¹ë¦¬ í•˜ì…¨ìŠµë‹ˆë‹¤ ************");
 			else if(res1 < res2)
-				System.out.println("************ "+ SDgame.currentRound +" ¶ó¿îµå " + player2.getName() + "´ÔÀÌ ½Â¸® ÇÏ¼Ì½À´Ï´Ù ************");
+				System.out.println("************ "+ SDgame.currentRound +" ë¼ìš´ë“œ " + player2.getName() + "ë‹˜ì´ ìŠ¹ë¦¬ í•˜ì…¨ìŠµë‹ˆë‹¤ ************");
 			else
-				System.out.println("******************* "+ SDgame.currentRound +" ¶ó¿îµå ¹«½ÂºÎ ÀÔ´Ï´Ù. *******************");
+				System.out.println("******************* "+ SDgame.currentRound +" ë¼ìš´ë“œ ë¬´ìŠ¹ë¶€ ì…ë‹ˆë‹¤. *******************");
 		
 			SDgame.currentRound++;
 			player1.compare(player2);
-			System.out.println(player1.getName()+" ´Ô ÇöÀç "+player1.player_money +"¿ø ÀÔ´Ï´Ù. ");
-			System.out.println(player2.getName()+" ´Ô ÇöÀç "+player2.player_money +"¿ø ÀÔ´Ï´Ù. ");
-			 }// 5ÆÇ ¹İº¹
+			System.out.println(player1.getName()+" ë‹˜ í˜„ì¬ "+player1.player_money +"ì› ì…ë‹ˆë‹¤. ");
+			System.out.println(player2.getName()+" ë‹˜ í˜„ì¬ "+player2.player_money +"ì› ì…ë‹ˆë‹¤. ");
+			 }// 5íŒ ë°˜ë³µ
 		
 		
-			System.out.println(player1.getName()+" ´Ô ÃÖÁ¾  "+ player1.getScore() + " Á¡ ÀÔ´Ï´Ù." );
-			System.out.println(player2.getName()+" ´Ô ÃÖÁ¾  "+ player2.getScore() + " Á¡ ÀÔ´Ï´Ù." );
+			System.out.println(player1.getName()+" ë‹˜ ìµœì¢…  "+ player1.getScore() + " ì  ì…ë‹ˆë‹¤." );
+			System.out.println(player2.getName()+" ë‹˜ ìµœì¢…  "+ player2.getScore() + " ì  ì…ë‹ˆë‹¤." );
 		
 			
 			if (player1.getScore() > player2.getScore())
-				System.out.println("************" + player1.getName() + "´Ô ÃàÇÏÇÕ´Ï´Ù. ÃÖÁ¾ ½Â¸® ÇÏ¼Ì½À´Ï´Ù ************");
+				System.out.println("************" + player1.getName() + "ë‹˜ ì¶•í•˜í•©ë‹ˆë‹¤. ìµœì¢… ìŠ¹ë¦¬ í•˜ì…¨ìŠµë‹ˆë‹¤ ************");
 			else if (player1.getScore() < player2.getScore())
-				System.out.println("************" + player2.getName() + "´Ô ÃàÇÏÇÕ´Ï´Ù. ÃÖÁ¾ ½Â¸® ÇÏ¼Ì½À´Ï´Ù ************");
+				System.out.println("************" + player2.getName() + "ë‹˜ ì¶•í•˜í•©ë‹ˆë‹¤. ìµœì¢… ìŠ¹ë¦¬ í•˜ì…¨ìŠµë‹ˆë‹¤ ************");
 			else if (player1.getScore() == player2.getScore())
-				System.out.println("************************** ¾Æ½±³×¿ä. ÃÖÁ¾ ¹«½ÂºÎÀÔ´Ï´Ù. **************************");
+				System.out.println("************************** ì•„ì‰½ë„¤ìš”. ìµœì¢… ë¬´ìŠ¹ë¶€ì…ë‹ˆë‹¤. **************************");
 
-			System.out.println("°è¼ÓÇÏ½Ã°Ú½À´Ï±î? (y/n)");
+			System.out.println("ê³„ì†í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (y/n)");
 			scanner.nextLine();
 			if (scanner.nextLine().equals("n")) {
-				System.out.println("°ÔÀÓÀÌ Á¾·á µÇ¾ú½À´Ï´Ù.");
+				System.out.println("ê²Œì„ì´ ì¢…ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				break;}
 			else if(scanner.nextLine().equals("y"))
 				continue;
-		}//¸ŞÀÎwhile
+		}//ë©”ì¸while
 	}//main
 }//class

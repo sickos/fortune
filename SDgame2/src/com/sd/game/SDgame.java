@@ -6,9 +6,9 @@ public class SDgame {
 	private int select;
 	private int random;
 	private int score;
-	static final int ROUND = 5; // ÃÑ ¶ó¿îµå ¼ö ºÒº¯
-	static final int MONEY = 10000; // ±âº» ¶ó¿îµå±İ
-	static int currentRound = 1; // ÇöÀç ¶ó¿îµå
+	static final int ROUND = 5; // ì´ ë¼ìš´ë“œ ìˆ˜ ë¶ˆë³€
+	static final int MONEY = 10000; // ê¸°ë³¸ ë¼ìš´ë“œê¸ˆ
+	static int currentRound = 1; // í˜„ì¬ ë¼ìš´ë“œ
 	int player_money;
 	
 	public int getRes() {
@@ -56,7 +56,7 @@ public class SDgame {
 		select = 0;
 		random = 0;
 		score=5;
-		player_money=50000; // ÃÊ±â ÀÚº»
+		player_money=50000; // ì´ˆê¸° ìë³¸
 		currentRound = 1;
 	}
 
