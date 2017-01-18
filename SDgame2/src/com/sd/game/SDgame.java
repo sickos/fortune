@@ -1,5 +1,4 @@
 package com.sd.game;
-import java.util.Scanner;
 
 public class SDgame {
 	int res;
@@ -17,28 +16,27 @@ public class SDgame {
 
 	void input() {
 	random = ((int) (Math.random() * 10) + 1);
-	this.select = select;
 	}	
 
-	void solution() {
-		if (select == 3 & random == 8 || select == 8 & random == 3) {
-			res = 21;
-		} else if (select == random) {
-			res = 10 + random;
-		} else {
-			res = select + random;
-			if (res > 10) {
-				res = res - 10;
+	int solution() {
+		if (select == 3 & random == 8 || select == 8 & random == 3) 
+			return 21;
+	    else if (select == random) 
+			return 10+random;
+		else {
+			if ( select+random >= 10) 
+				return (select+random)-10;
+			else
+				return select+random;
 			}
-		}
 	}
 
 	void compare(SDgame player){
-		if (res > player.res)
-			score++;
-		if (res <  player.res)
-			score--;
-		if (res == player.res) 
-			score =score;
+		if (this.solution() > player.solution()){
+			this.score ++;
+			player.score --;}
+		else if (this.solution() <  player.solution()){
+			player.score ++;
+			this. score --;}
 	}
 }// class
