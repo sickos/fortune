@@ -85,4 +85,17 @@ public class SDgame {
 			player.score ++;
 			this. score --;}
 	}
+	
+	static void print_menu(){
+		System.out.println("┌──────────────────┐");
+		System.out.println("│              섯다 게임 메뉴               │");
+		System.out.println("│   	                                         │");
+		System.out.println("│      1. 게임 시작                          │");
+		System.out.println("│    	                                         │");
+		System.out.println("│      2. 게임 설명  	                 │");
+		System.out.println("│    	                                         │");
+		System.out.println("│   	3. 메뉴 종료                           │");
+		System.out.println("│    	                           	         │");
+		System.out.println("└──────────────────┘");
+	}
 }// class

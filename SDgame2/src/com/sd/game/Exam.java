@@ -1,12 +1,21 @@
 package com.sd.game;
 
 import java.util.Scanner;
+import java.io.*;
 
 public class Exam {
 	
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);	
 		int res1,res2;
+		int menu_input,back_input;
+		
+		SDgame.print_menu();
+		menu_input=scanner.nextInt();
+		
+		while(true){
+		switch(menu_input){
+		case 1:
 		while (true) {
 			SDgame_child player1 = new SDgame_child();
 			SDgame_child player2 = new SDgame_child();	
@@ -41,7 +50,7 @@ public class Exam {
 			System.out.println(player1.getName() + "의 랜덤 패 숫자= " + player1.getRandom());
 
 			System.out.print(player2.getName() + "의 첫 번째 패 숫자 = " + player2.getSelect() + "     ");
-			System.out.println(player2.getName() + "의 랜덤 패 숫자= " + player2.getRandom());
+			 System.out.println(player2.getName() + "의 랜덤 패 숫자= " + player2.getRandom());
 
 			res1 = player1.solution();
 			if (res1 >= 21) {
@@ -70,8 +79,8 @@ public class Exam {
 		
 			SDgame.currentRound++;
 			player1.compare(player2);
-			System.out.println(player1.getName()+" 님 현재 "+player1.player_money +"원 입니다. ");
-			System.out.println(player2.getName()+" 님 현재 "+player2.player_money +"원 입니다. ");
+			System.out.println(player1.getName()+"님의 보유금액= " + player1.player_money);
+			System.out.println(player2.getName()+"님의 보유금액= " + player2.player_money);
 			 }// 5판 반복
 		
 		
@@ -89,10 +98,25 @@ public class Exam {
 			System.out.println("계속하시겠습니까? (y/n)");
 			scanner.nextLine();
 			if (scanner.nextLine().equals("n")) {
-				System.out.println("게임이 종료 되었습니다.");
 				break;}
 			else if(scanner.nextLine().equals("y"))
 				continue;
-		}//메인while
+		}//게임시작 while	
+		case 2:
+	
+			
+		case 3:
+			break;
+		}//switch문
+		}//while 문
 	}//main
+	
+	public static void pause() {
+	    try {
+	      System.in.read();
+	    } catch (IOException e) { }
+	  }
+	
+	
+
 }//class
