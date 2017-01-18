@@ -2,7 +2,23 @@ package com.sd.game;
 
 import java.util.Scanner;
 
-public class Exam {
+public class Exam extends SDgame {
+	
+	
+	void compare(SDgame player){
+		if (this.solution() > player.solution()){
+			this.setScore(this.getScore()+1);
+			player.setScore(player.getScore()-1); 
+			this.player_money = SDgame.money  * 2;
+			}
+		else if (this.solution() <  player.solution()){
+			player.setScore(player.getScore()-1); 
+			this.setScore(this.getScore()-1);
+			player.player_money = SDgame.money * 2;
+	}
+	}
+	
+	
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);	
 		int res1,res2;
@@ -72,6 +88,8 @@ public class Exam {
 		
 			System.out.println(player1.getName()+" 님 최종  "+ player1.getScore() + " 점 입니다." );
 			System.out.println(player2.getName()+" 님 최종  "+ player2.getScore() + " 점 입니다." );
+			System.out.println(player1.getName()+" 님 최종  "+ player1.player_money + " 원 입니다." );
+			System.out.println(player2.getName()+" 님 최종  "+ player2.player_money + " 원 입니다." );
 			
 			if (player1.getScore() > player2.getScore())
 				System.out.println("************" + player1.getName() + "님 축하합니다. 최종 승리 하셨습니다 ************");

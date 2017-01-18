@@ -7,6 +7,8 @@ public class SDgame {
 	private int random;
 	private int score;
 	static final int round = 5;
+	static int money = 10000;
+	int player_money;
 	
 	public int getRes() {
 		return res;
@@ -53,6 +55,7 @@ public class SDgame {
 		select = 0;
 		random = 0;
 		score=5;
+		player_money = 10000;
 	}
 
 	void input() {
