@@ -6,8 +6,9 @@ public class SDgame {
 	private int select;
 	private int random;
 	private int score;
-	static final int round = 5;
-	static int money = 10000;
+	static final int ROUND = 5; // 총 라운드 수 불변
+	static final int MONEY = 10000; // 기본 라운드금
+	static int currentRound = 1; // 현재 라운드
 	int player_money;
 	
 	public int getRes() {
@@ -55,7 +56,8 @@ public class SDgame {
 		select = 0;
 		random = 0;
 		score=5;
-		player_money = 10000;
+		player_money=50000; // 초기 자본
+		currentRound = 1;
 	}
 
 	void input() {

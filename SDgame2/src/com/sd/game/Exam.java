@@ -2,35 +2,20 @@ package com.sd.game;
 
 import java.util.Scanner;
 
-public class Exam extends SDgame {
-	
-	
-	void compare(SDgame player){
-		if (this.solution() > player.solution()){
-			this.setScore(this.getScore()+1);
-			player.setScore(player.getScore()-1); 
-			this.player_money = SDgame.money  * 2;
-			}
-		else if (this.solution() <  player.solution()){
-			player.setScore(player.getScore()-1); 
-			this.setScore(this.getScore()-1);
-			player.player_money = SDgame.money * 2;
-	}
-	}
-	
+public class Exam {
 	
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);	
 		int res1,res2;
 		while (true) {
-			SDgame player1 = new SDgame();
-			SDgame player2 = new SDgame();	
+			SDgame_child player1 = new SDgame_child();
+			SDgame_child player2 = new SDgame_child();	
 			System.out.println("1 플레이어 이름을 입력하세요.");
 			player1.setName(scanner.nextLine());
 			System.out.println("2 플레이어 이름을 입력하세요.");
 			player2.setName(scanner.nextLine());
 	
-			for(int i=0;i<SDgame.round;i++){
+			for(int i=SDgame.currentRound; i<=SDgame.ROUND ;i++){
 				
 			System.out.print("\n"+player1.getName() + "님 숫자를 입력하세요.");
 			player1.input();
@@ -77,19 +62,22 @@ public class Exam extends SDgame {
 			}
 			
 			if(res1 > res2)
-				System.out.println("************ "+ (i+1) +" 라운드 " + player1.getName()+ "님이 승리 하셨습니다 ************");
+				System.out.println("************ "+ SDgame.currentRound+" 라운드 " + player1.getName()+ "님이 승리 하셨습니다 ************");
 			else if(res1 < res2)
-				System.out.println("************ "+ (i+1) +" 라운드 " + player2.getName() + "님이 승리 하셨습니다 ************");
+				System.out.println("************ "+ SDgame.currentRound +" 라운드 " + player2.getName() + "님이 승리 하셨습니다 ************");
 			else
-				System.out.println("************************** "+ (i+1) +" 라운드 무승부 입니다. **************************");
+				System.out.println("******************* "+ SDgame.currentRound +" 라운드 무승부 입니다. *******************");
+		
+			SDgame.currentRound++;
 			player1.compare(player2);
+			System.out.println(player1.getName()+" 님 현재 "+player1.player_money +"원 입니다. ");
+			System.out.println(player2.getName()+" 님 현재 "+player2.player_money +"원 입니다. ");
 			 }// 5판 반복
 		
 		
 			System.out.println(player1.getName()+" 님 최종  "+ player1.getScore() + " 점 입니다." );
 			System.out.println(player2.getName()+" 님 최종  "+ player2.getScore() + " 점 입니다." );
-			System.out.println(player1.getName()+" 님 최종  "+ player1.player_money + " 원 입니다." );
-			System.out.println(player2.getName()+" 님 최종  "+ player2.player_money + " 원 입니다." );
+		
 			
 			if (player1.getScore() > player2.getScore())
 				System.out.println("************" + player1.getName() + "님 축하합니다. 최종 승리 하셨습니다 ************");
@@ -103,6 +91,8 @@ public class Exam extends SDgame {
 			if (scanner.nextLine().equals("n")) {
 				System.out.println("게임이 종료 되었습니다.");
 				break;}
+			else if(scanner.nextLine().equals("y"))
+				continue;
 		}//메인while
 	}//main
 }//class
