@@ -6,6 +6,7 @@ public class SDgame {
 	private int select;
 	private int random;
 	private int score;
+	static final int round = 5;
 	
 	public int getRes() {
 		return res;

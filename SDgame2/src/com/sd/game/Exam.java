@@ -14,7 +14,7 @@ public class Exam {
 			System.out.println("2 플레이어 이름을 입력하세요.");
 			player2.setName(scanner.nextLine());
 	
-			for(int i=0;i<5;i++){
+			for(int i=0;i<SDgame.round;i++){
 				
 			System.out.print("\n"+player1.getName() + "님 숫자를 입력하세요.");
 			player1.input();
