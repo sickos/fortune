@@ -16,7 +16,6 @@ public class Exam {
    menu_input=scanner.nextInt();
    
    boolean menu_check = true;
-
    while(menu_check){
    if(menu_input == 1 || back_input == 1){   
 	   while (true) {
@@ -78,6 +77,7 @@ public class Exam {
 			System.out.println("계속하시겠습니까? (y/n)");
 			scanner.nextLine();
 			if (scanner.nextLine().equals("n")) {
+				menu_check= false;
 				break;}
 			else if(scanner.nextLine().equals("y"))
 				continue;
