@@ -1,15 +1,22 @@
 package com.sd.game;
 
-public class SDgame {
+public abstract class SDgame {
 	private int res;
 	private String name;
 	private int select;
 	private int random;
 	private int score;
-	static final int ROUND = 5; // 총 라운드 수 불변
-	static final int MONEY = 10000; // 기본 라운드금
 	static int currentRound = 1; // 현재 라운드
 	int player_money;
+	
+	public SDgame() {
+		name = " ";
+		select = 0;
+		random = 0;
+		score=5;
+		player_money=50000; // 초기 자본
+		currentRound = 1;
+	}
 	
 	public int getRes() {
 		return res;
@@ -50,20 +57,9 @@ public class SDgame {
 	public void setScore(int score) {
 		this.score = score;
 	}
-
-	public SDgame() {
-		name = " ";
-		select = 0;
-		random = 0;
-		score=5;
-		player_money=50000; // 초기 자본
-		currentRound = 1;
-	}
-
-	void input() {
-	random = ((int) (Math.random() * 10) + 1);
-	}	
-
+	
+	abstract void compare(SDgame player); // compare 추상메소드선언
+	
 	int solution() {
 		if (select == 3 & random == 8 || select == 8 & random == 3) 
 			return 21;
@@ -76,26 +72,16 @@ public class SDgame {
 				return select+random;
 			}
 	}
-
-	void compare(SDgame player){
-		if (this.solution() > player.solution()){
-			this.score ++;
-			player.score --;}
-		else if (this.solution() <  player.solution()){
-			player.score ++;
-			this. score --;}
-	}
 	
-	static void print_menu(){
-		System.out.println("┌──────────────────┐");
-		System.out.println("│              섯다 게임 메뉴               │");
-		System.out.println("│   	                                         │");
-		System.out.println("│      1. 게임 시작                          │");
-		System.out.println("│    	                                         │");
-		System.out.println("│      2. 게임 설명  	                 │");
-		System.out.println("│    	                                         │");
-		System.out.println("│   	3. 메뉴 종료                           │");
-		System.out.println("│    	                           	         │");
-		System.out.println("└──────────────────┘");
-	}
+	 static void print_menu(){
+	      System.out.println("┌───────────────────┐");
+	      System.out.println("│      섯다 게임 메뉴   │");
+	      System.out.println("│                  │");
+	      System.out.println("│      1. 게임 시작   │");
+	      System.out.println("│                   │");
+	      System.out.println("│      2. 게임 설명   │");
+	      System.out.println("│                   │");
+	      System.out.println("└───────────────────┘");
+	   }
+
 }// class
