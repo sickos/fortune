@@ -13,11 +13,13 @@ public class Exam {
       
       SDgame.print_menu();
       System.out.println("메뉴를 선택하세요.");
-   menu_input=scanner.nextInt();
+   menu_input=Integer.valueOf(scanner.nextLine());//scanner.nextInt();
    
    boolean menu_check = true;
    while(menu_check){
-   if(menu_input == 1 || back_input == 1){   
+	   
+   if(menu_input == 1 ){   
+	   
 	   while (true) {
 			SDgame_child[] players = { new SDgame_child(),
 											  new SDgame_child() };
@@ -82,7 +84,7 @@ public class Exam {
 			else if(scanner.nextLine().equals("y"))
 				continue;
 		}//게임시작 while
-   }
+   }//1번메뉴
    
    else if (menu_input == 2){
       System.out.println("이 게임은 섯다를 기준으로 만든 게임입니다");
@@ -95,12 +97,9 @@ public class Exam {
       if(scanner.nextLine().equals("y")){
          back_input = 1;
       }
-         else if(scanner.nextLine().equals("n")){
+         else if(scanner.nextLine().equals("n"))
             continue;
-         }
-      }
-   }//else if문
-   }
-
-   
-}//main
+      }//2번게임설명
+   	}//메뉴체크while
+  }//main
+}//class
