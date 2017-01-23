@@ -8,15 +8,14 @@ public class Exam {
    public static void main(String args[]) {
       Scanner scanner = new Scanner(System.in);   
       int res[]= new int[2];
-      int menu_input;
-      int back_input = 0;
-      
-      SDgame.print_menu();
-      System.out.println("메뉴를 선택하세요.");
-   menu_input=Integer.valueOf(scanner.nextLine());//scanner.nextInt();
+      int menu_input,menu_input2;
+     
    
    boolean menu_check = true;
    while(menu_check){
+	      SDgame.print_menu();
+	      System.out.println("메뉴를 선택하세요.");
+	   menu_input=Integer.valueOf(scanner.nextLine());//scanner.nextInt();
 	   
    if(menu_input == 1 ){   
 	   
@@ -79,7 +78,6 @@ public class Exam {
 			System.out.println("계속하시겠습니까? (y/n)");
 			scanner.nextLine();
 			if (scanner.nextLine().equals("n")) {
-				menu_check= false;
 				break;}
 			else if(scanner.nextLine().equals("y"))
 				continue;
@@ -87,19 +85,28 @@ public class Exam {
    }//1번메뉴
    
    else if (menu_input == 2){
-      System.out.println("이 게임은 섯다를 기준으로 만든 게임입니다");
+	   SDgame.print_menu2();
+	   System.out.println("\n이 게임은 섯다를 기준으로 만든 게임입니다");
       System.out.println("두명의 사용자가 초기금 50,000원을 받고,"
             + "판돈을 만원씩으로해 총 5라운드를 진행을 합니다.");
       System.out.println("각 판마다의 승패를 가려 승리시 +20,000원을 "
             + "패배시 -10,000원을 하여 누적해 마지막 총액과 승수를 비교해 승리자를 나타내줍니다.");
-      System.out.println("\n메뉴를 종료하시겠습니까?");
+      System.out.println("\n메뉴를 선택하세요.");
+      menu_input2=Integer.valueOf(scanner.nextLine());
       
-      if(scanner.nextLine().equals("y")){
-         back_input = 1;
-      }
-         else if(scanner.nextLine().equals("n"))
-            continue;
-      }//2번게임설명
+		      if(menu_input2 == 1)
+		         continue;   
+		      else if(menu_input2 == 2){
+		        	   System.out.println("게임 종료.");
+		        	 break;    }
+		      else {
+		    	  System.out.println("잘못 입력 하셨습니다. 메인 메뉴로 돌아갑니다.");	
+		    	  continue;}	  
+      }//2번게임설명]
+   else if (menu_input == 3){
+ 	  System.out.println("게임 종료.");
+ 	  break; 
+ 	  }//3번게임종료
    	}//메뉴체크while
   }//main
 }//class
