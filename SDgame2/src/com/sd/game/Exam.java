@@ -20,8 +20,9 @@ public class Exam {
    if(menu_input == 1 ){   
 	   
 	   while (true) {
+
 			SDgame_child[] players = { new SDgame_child(),
-											  new SDgame_child() };
+											  new SDgame_child() };         
 			for(int i=0; i<2; i++){
 				System.out.println( (i+1) +" 플레이어 이름을 입력하세요.");
 				players[i].setName(scanner.nextLine());
@@ -61,10 +62,40 @@ public class Exam {
 		
 			SDgame.currentRound++;
 			players[0].compare(players[1]);
-			System.out.println(players[0].getName()+"님의 보유금액= " + players[0].player_money);
-			System.out.println(players[1].getName()+"님의 보유금액= " + players[1].player_money);
-			 }// 5판 반복
 			
+			  try { 
+	            	 FileOutputStream fos = new FileOutputStream("test2.dat");
+	                 DataOutputStream dos = new DataOutputStream(fos);   
+	                 
+	               dos.writeUTF(players[0].getName()+" 플레이어");
+	               dos.writeInt(players[0].player_money);
+	               dos.writeUTF(players[1].getName()+" 플레이어");
+	               dos.writeInt(players[1].player_money);
+	               //dos.flush();
+	               dos.close();
+	               fos.close();
+			  } catch(Exception e){
+	               e.printStackTrace();
+	            }
+			
+			 try{
+	               FileInputStream fis = new FileInputStream("test2.dat");
+	               DataInputStream dis = new DataInputStream(fis);
+	               String name = dis.readUTF();
+	               int money = dis.readInt();
+	   
+	               String name2 = dis.readUTF();
+	               int money2 = dis.readInt();
+	         
+	               System.out.println(name + " 의 보유금액 =  " + money + " 원 " );
+	               System.out.println(name2 + " 의 보유금액 =  " + money2 + " 원 " );
+	               dis.close();
+	               fis.close();
+	              }catch(Exception e){
+	               e.printStackTrace();
+	            }
+			 }// 5판 반복
+		    
 			System.out.println(players[0].getName()+" 님 최종  "+ players[0].getScore() + " 점 입니다." );
 			System.out.println(players[1].getName()+" 님 최종  "+ players[1].getScore() + " 점 입니다." );
 				
@@ -74,14 +105,15 @@ public class Exam {
 				System.out.println("************" + players[1].getName() + "님 축하합니다. 최종 승리 하셨습니다 ************");
 			else if (players[0].getScore() == players[1].getScore())
 				System.out.println("************************** 아쉽네요. 최종 무승부입니다. **************************");
-
+			
 			System.out.println("계속하시겠습니까? (y/n)");
 			scanner.nextLine();
 			if (scanner.nextLine().equals("n")) {
 				break;}
 			else if(scanner.nextLine().equals("y"))
 				continue;
-		}//게임시작 while
+		  
+		   }//게임시작 while
    }//1번메뉴
    
    else if (menu_input == 2){
